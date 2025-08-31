@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Economy Simulator: Reborn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background-color: white;
+        color: #333;
+      }
+      nav {
+        background-color: #f3f3f3;
+        border-bottom: 1px solid #ccc;
+        padding: 1rem;
+      }
+      nav a {
+        margin-right: 1rem;
+        text-decoration: none;
+        color: #555;
+        font-weight: bold;
+      }
+      nav a:hover {
+        color: #000;
+      }
+      .alert {
+        background-color: #f68802;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        font-weight: bold;
+      }
+      .hero {
+        position: relative;
+        height: 600px;
+        overflow: hidden;
+      }
+      .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+      }
+      .hero-text {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+      }
+      .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        cursor: pointer;
+        font-size: 2rem;
+        padding: 0 1rem;
+      }
+      .carousel-nav:hover {
+        color: #ccc;
+      }
+      .indicators {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.5rem;
+      }
+      .indicators button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
+        cursor: pointer;
+      }
+      .indicators .active {
+        background: white;
+      }
+      .join {
+        max-width: 600px;
+        margin: 4rem auto;
+        text-align: center;
+      }
+      .join h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .join p {
+        margin-bottom: 2rem;
+        color: #666;
+      }
+      .join a {
+        background: #0070f3;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .join a:hover {
+        background: #0059c1;
+      }
+      footer {
+        background: #f3f3f3;
+        border-top: 1px solid #ccc;
+        padding: 2rem;
+        text-align: center;
+        font-size: 0.875rem;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/login">Login</a>
+      <a href="/discord">Discord</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/account-deletion">Account Deletion</a>
+    </nav>
+
+    <div class="alert">
+      nothing in this site works. as this is a copy. Please do not try logging in/signing even tho you cant
+    </div>
+
+    <div class="hero">
+      <img id="carousel-img" src="" alt="Screenshot" />
+      <div class="overlay"></div>
+      <div class="hero-text">
+        <div>
+          <h1>Economy Simulator: Reborn test site</h1>
+          <p>test idk</p>
+        </div>
+      </div>
+      <div class="carousel-nav" style="left: 0;" onclick="prevImage()">‹</div>
+      <div class="carousel-nav" style="right: 0;" onclick="nextImage()">›</div>
+      <div class="indicators" id="indicators"></div>
+    </div>
+
+    <div class="join">
+      <h3>How do I join?</h3>
+      <p>
+        You have to fill out an application to join. This is done to prevent bots and other malicious players from joining.
+        Click the button below to fill out an application.
+      </p>
+      <!-- ✅ Link patched to Application.html -->
+      <a href="Application.html">Apply here!</a>
+    </div>
+
+    <footer>
+      <p>
+        This website is not affiliated, endorsed, and/or sponsored by any companies, trademarks, or copyrighted names mentioned.
+        No copyright infringement is intended.
+      </p>
+      <p>© 2025 ecsr.io</p>
+    </footer>
+
+    <script>
+      const images = [
+        "https://ext.same-assets.com/1898466407/550995448.webp",
+        "https://ext.same-assets.com/1898466407/1783152343.webp",
+        "https://ext.same-assets.com/1898466407/2933366392.webp",
+        "https://ext.same-assets.com/1898466407/2872127149.webp",
+        "https://ext.same-assets.com/1898466407/2202308705.webp",
+      ];
+      let current = 2;
+
+      const imgEl = document.getElementById("carousel-img");
+      const indicatorsEl = document.getElementById("indicators");
+
+      function updateImage() {
+        imgEl.src = images[current];
+        indicatorsEl.innerHTML = images
+          .map((_, i) => `<button onclick="goTo(${i})" class="${i === current ? 'active' : ''}"></button>`)
+          .join("");
+      }
+
+      function nextImage() {
+        current = (current + 1) % images.length;
+        updateImage();
+      }
+
+      function prevImage() {
+        current = (current - 1 + images.length) % images.length;
+        updateImage();
+      }
+
+      function goTo(i) {
+        current = i;
+        updateImage();
+      }
+
+      setInterval(nextImage, 5000);
+      updateImage();
+    </script>
+  </body>
+</html>

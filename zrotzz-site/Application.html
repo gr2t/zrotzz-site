@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apply Now — ECS:R</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --background: #fff;
+      --foreground: #0a0a0a;
+      --primary: #1c1c1c;
+      --primary-foreground: #fff;
+      --accent: #0070f3;
+      --accent-foreground: #fff;
+      --border: #ccc;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      background-color: #f3f3f3;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem;
+    }
+
+    nav a {
+      margin-right: 1rem;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .warning-banner {
+      background-color: #f68802;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .card {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border-radius: 0.5rem;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .step-header {
+      background-color: #000;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      margin-bottom: 1rem;
+    }
+
+    .input, .textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.375rem;
+      font-size: 1rem;
+    }
+
+    .verification-code {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      border: 1px solid #bee5eb;
+      padding: 1rem;
+      border-radius: 0.375rem;
+      font-family: monospace;
+      margin-bottom: 1rem;
+    }
+
+    .button {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.375rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #0059c1;
+    }
+
+    footer {
+      background-color: #f3f3f3;
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #666;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Login</a>
+    <a href="#">Discord</a>
+    <a href="#">Privacy</a>
+    <a href="#">Account Deletion</a>
+  </nav>
+
+  <div class="warning-banner">lmao</div>
+
+  <main class="container">
+    <div class="card">
+      <h2>Application</h2>
+      <p>To join this website, you must fill out an application. This is done to prevent bots and malicious users from joining.</p>
+      <p><strong>Already filled out the application?</strong> <a href="#">Click here</a> to view its status.</p>
+
+      <form>
+        <!-- Step 1 -->
+        <div class="step-header">Step 1 - About Me</div>
+        <p>List some interests, favorite games, why you want to join, or things you can create. <strong>Do <u>NOT</u> include personal info.</strong></p>
+        <textarea class="textarea" placeholder="About me (up to 4,000 characters)" maxlength="4000"></textarea>
+
+        <!-- Step 2 -->
+        <div class="step-header">Step 2 - Social URL</div>
+        <p>Paste a link to your profile on a public site (Roblox, Twitter, Reddit, etc.).</p>
+        <p><strong>Your account must show activity</strong>—friends, posts, games, etc.</p>
+        <input class="input" type="text" placeholder="Social Media Profile URL" maxlength="128" />
+
+        <!-- Step 3 -->
+        <div class="step-header">Step 3 - Verification</div>
+        <p>Copy the phrase below and paste it into your profile’s about section.</p>
+        <div class="verification-code">ecsrev cloud dog flower cow raccoon gray</div>
+        <p><small>Code not working?</small></p>
+        <button type="button" class="button">Get New Code</button>
+
+        <!-- Step 4 -->
+        <div class="step-header">Step 4 - Captcha</div>
+        <p>We just have to make sure you aren't a robot.</p>
+        <div style="background:#eee; padding:1rem; text-align:center; border-radius:0.375rem;">☑ Verify you are human</div>
+
+        <!-- Submit -->
+        <div style="text-align:center; margin-top:2rem;">
+          <button type="submit" class="button">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>This website is not affiliated, endorsed, or sponsored by any companies or trademarks. No copyright infringement intended.</p>
+    <p>© 2025 ecsr.io</p>
+  </footer>
+</body>
+</html>
